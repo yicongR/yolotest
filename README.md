@@ -1,6 +1,8 @@
 # yolotest
 机器学习笔记1 yolov3 猫咪检测 主要参考了https://zhuanlan.zhihu.com/p/35490655
-    一.有关数据集可以在网上下载这里给出一个自己动手丰衣足食版本 从爬数据开始
+   
+   
+   一.有关数据集可以在网上下载这里给出一个自己动手丰衣足食版本 从爬数据开始
        这里给一个粗糙的 爬虫.py 轻松在百度图库爬取相应目标图片 图片标注工具为 labelImg 具体参见 https://github.com/tzutalin/labelImg  标注完        成后把数据放到两个相应文件夹 JPEGImages：用于存放所有的图片，格式为.jpg ; Annotations:用于存放与图片对应的XML文件
 
     接下来准备一下需要的 .txt文件 一共需要下面这些：
