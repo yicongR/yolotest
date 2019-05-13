@@ -87,5 +87,5 @@
 
 在darknet目录下打开终端，运行：
 
-./darknet detector demo ./cat_detect/cat_voc.data ./cat_detect/yolov3-voc.cfg ./cat_detect/backup/yolov3-voc_30000.weights ./cat_detect/test_data/test.mp4
+    ./darknet detector demo ./cat_detect/cat_voc.data ./cat_detect/yolov3-voc.cfg ./cat_detect/backup/yolov3-voc_30000.weights ./cat_detect/test_data/test.mp4
 
