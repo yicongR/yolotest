@@ -18,10 +18,10 @@
    2.把cfg文夹中的voc.data复制到自己项目目录下，改名为xxx_voc.data，并修改：
 
        classes= 20  #类别数
-       train  = /home/wlin/darknet/boat_detect/xxx_train.txt #xxx_train.txt路径
-       valid  = /home/wlin/darknet/boat_detect/xxx_val.txt  #xxx_val.txt路径
-       names = /home/wlin/darknet/boat_detect/xxx_voc.names #xxx_voc.names路径
-       backup = /home/wlin/darknet/boat_detect/backup/ #建一个backup文件夹用于存放中间结果
+       train  = /home/wlin/darknet/cat_detect/cat_train.txt #path_train.txt路径
+       valid  = /home/wlin/darknet/cat_detect/cat_val.txt  #path_val.txt路径
+       names = /home/wlin/darknet/cat_detect/cat_voc.names #xxx_voc.names路径
+       backup = /home/wlin/darknet/cat_detect/backup/ #建一个backup文件夹用于存放中间结果
 
    3.把cfg文夹中的yolov3-voc.cfg复制到自己项目目录下，并修改：
 
@@ -58,7 +58,34 @@
        jitter=.3
        ignore_thresh = .5
        truth_thresh = 1
-       random=1           #显存小的话 =0
+       random=0           #显存小的话 =0
 
        #这个文件的最下面有3个YOLO层，这里我才放上来了一个，这三个地方的classes做相应修改
        #每个YOLO层的上一层的convolutional层的filters也要修改
+
+4.下载预训练模型（权重）
+
+在项目目录下打开终端，运行命令：
+
+    wget https://pjreddie.com/media/files/darknet53.conv.74
+5.训练
+
+到此，训练所需的文件就准备好了，可以尝试着开始训练，在darknet目录下执行：
+
+    ./darknet detector train cat_detect/boat_voc.data cat_detect/yolov3-voc.cfg darknet53.conv.74 
+    
+测试自己训练的模型
+我的训练集有大概2000图，最后的模型存在 /backup目录下。
+
+（1）单张图片测试：
+
+在darknet目录下打开终端，运行：
+
+    ./darknet detector test ./cat_detect/cat_voc.data ./cat_detect/yolov3-voc.cfg ./cat_detect/backup/yolov3-voc_30000.weights ./cat_detect/test_data/test.jpg
+
+2）视频测试：
+
+在darknet目录下打开终端，运行：
+
+./darknet detector demo ./cat_detect/cat_voc.data ./cat_detect/yolov3-voc.cfg ./cat_detect/backup/yolov3-voc_30000.weights ./cat_detect/test_data/test.mp4
+
