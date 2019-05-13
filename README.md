@@ -11,7 +11,7 @@
         3.path_train.txt:存放用于训练的图片的绝对路径，每行一个路径。
         4.path_val.txt:存放用于验证的图片的绝对路径，每行一个路径。
         5.labels文件夹的txt：每个文件存放的是对应图片的标注信息，每行一个目标，若有多行则表示读应图片上有多个目标。
-        label.py 可以通过Annotation文件夹数据得到需要的labels文件夹 对图片做一个训练集测试集简单分类后通过 get_namelist.py可以得到train.txt val.txtc然后使用博文里给出的利用train.txt，val.txt以及xml文件来生成path_train.txt,path_val.txt以及labels文件夹下所有txt文件的python代码 到这里数据准备就完成了。
+        label.py 可以通过Annotation文件夹数据得到需要的labels文件夹 对图片做一个训练集测试集简单分类后通过 get_namelist.py可以得到train.txt val.txt然后使用博文里给出的imgpath_txt.py利用train.txt，val.txt以及xml文件来生成path_train.txt,path_val.txt,到这里数据准备就完成了。
 
 二.修改相应的文件
    1.在项目目录下建立一个.names文件（也可以把data文件夹中的voc.names复制过来修改并重命名。
